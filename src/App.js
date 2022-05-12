@@ -1,23 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import { useRef} from 'react';
+import HTMLFlipBook from 'react-pageflip';
 
 function App() {
+
+  const flipBook = useRef(null);
+
+  let i = 0;
+  let pagines = []
+  // Ja farem aso mes PRO
+  for (i = 3; i < 42; i++) {
+    pagines.push(i);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <h1>
+        El planeta Llibri
+      </h1>
+      <div>
+        <HTMLFlipBook
+          width={945}
+          height={709}
+          showCover={true}
+          mobileScrollSupport={true}
+          ref={flipBook}
         >
-          Learn React
-        </a>
-      </header>
+          <div className="page page-cover" data-density="hard">
+            <div className="page-content">
+              <img src="/pagines/1.jpg" alt="pagina 1" />
+            </div>
+          </div>
+          <div className='page'></div>
+          {pagines.map(p => {
+            return (
+              <div key={p} className="page">
+                <div className="page-content">
+                  <h2 className="page-header"></h2>
+                  <div className="page-image">
+                    <img src={"/pagines/" + p + ".jpg"} alt={"pagina " + p + "3"} />
+                  </div>                  
+                </div>
+              </div>
+            )
+          })}
+          
+           <div className="page page-cover" data-density="hard">
+            <div className="page-content">
+              <img src="/pagines/41.jpg" alt="pagina 41" />
+            </div>
+          </div>
+
+
+        </HTMLFlipBook>
+
+      </div>
+
+      <hr />
+
+      <button onClick={() => flipBook.current.pageFlip().flipPrev()}>
+        Anterior
+      </button>
+
+      <button onClick={() => flipBook.current.pageFlip().flipNext()}>
+        Següent
+      </button>
+
+
     </div>
   );
 }
