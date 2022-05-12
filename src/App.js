@@ -1,5 +1,5 @@
 import "./index.css";
-import { useRef} from 'react';
+import { useRef } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 
 function App() {
@@ -21,6 +21,12 @@ function App() {
         <HTMLFlipBook
           width={945}
           height={709}
+          size="stretch"
+          minWidth={315}
+          maxWidth={945}
+          minHeight={400}
+          maxHeight={709}
+          maxShadowOpacity={0.5}
           showCover={true}
           mobileScrollSupport={true}
           ref={flipBook}
@@ -38,13 +44,13 @@ function App() {
                   <h2 className="page-header"></h2>
                   <div className="page-image">
                     <img src={"/pagines/" + p + ".jpg"} alt={"pagina " + p + "3"} />
-                  </div>                  
+                  </div>
                 </div>
               </div>
             )
           })}
-          
-           <div className="page page-cover" data-density="hard">
+
+          <div className="page page-cover" data-density="hard">
             <div className="page-content">
               <img src="/pagines/41.jpg" alt="pagina 41" />
             </div>
