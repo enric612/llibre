@@ -66,7 +66,7 @@ function App() {
 
       <hr />
 
-      <div className="relative h-32 w-32">
+      <div className="relative h-32 w-full">
         <button className="absolute left-0" onClick={() => flipBook.current.pageFlip().flipPrev()}>
           Anterior
         </button>
