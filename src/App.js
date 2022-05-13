@@ -1,10 +1,12 @@
-import "./index.css";
-import { useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 
 function App() {
 
   const flipBook = useRef(null);
+
+  const [ultima, setUltima] = useState(false);
+  const [primera, setPrimera] = useState(true);
 
   let i = 0;
   let pagines = []
@@ -12,12 +14,31 @@ function App() {
   for (i = 2; i < 42; i++) {
     pagines.push(i);
   }
+
+  const onFlip = useCallback((e) => {
+
+    if (flipBook.current.pageFlip().getPageCount() === e.data + 1) {
+      setUltima(true)
+    } else {
+      setUltima(false)
+    }
+    if (e.data === 0) {
+      setPrimera(true)
+    } else {
+      setPrimera(false)
+    }
+  }, []);
+
+  useEffect(() => {
+    document.title = "Els Viatgers del planeta Llibri";
+  }, []);
+
   return (
     <div>
-      <h1>
-        El planeta Llibri
+      <h1 className='text-violet-900'>
+        Els Viatgers del planeta Llibri
       </h1>
-      <div>
+      <div className="m-4 border-double border-4 border-violet-700 bg-violet-100">
         <HTMLFlipBook
           width={945}
           height={709}
@@ -28,7 +49,10 @@ function App() {
           maxHeight={709}
           maxShadowOpacity={0.5}
           showCover={true}
+          drawShadow={true}
+          flippingTime={1500}
           mobileScrollSupport={true}
+          onFlip={onFlip}
           ref={flipBook}
         >
           <div className="page page-cover" data-density="hard">
@@ -64,14 +88,18 @@ function App() {
 
       </div>
 
-      <hr />
+      <hr className="m-4" />
 
       <div className="relative h-32 w-full">
-        <button className="absolute left-0" onClick={() => flipBook.current.pageFlip().flipPrev()}>
+        <button className="absolute left-2 btn-red"
+          disabled={primera}
+          onClick={primera ? (() => { }) : (() => flipBook.current.pageFlip().flipPrev())}>
           Anterior
         </button>
 
-        <button className="absolute right-0" onClick={() => flipBook.current.pageFlip().flipNext()}>
+        <button className="absolute right-2 btn-blue"
+          disabled={ultima}
+          onClick={ultima ? (() => { }) : (() => flipBook.current.pageFlip().flipNext())}>
           Següent
         </button>
       </div>
