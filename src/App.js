@@ -1,22 +1,17 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 
 function App() {
-
   const flipBook = useRef(null);
-
   const [ultima, setUltima] = useState(false);
   const [primera, setPrimera] = useState(true);
-
   let i = 0;
   let pagines = []
   // Ja farem aso mes PRO
-  for (i = 2; i < 42; i++) {
+  for (i = 2; i < 43; i++) {
     pagines.push(i);
   }
-
   const onFlip = useCallback((e) => {
-
     if (flipBook.current.pageFlip().getPageCount() === e.data + 1) {
       setUltima(true)
     } else {
@@ -28,17 +23,12 @@ function App() {
       setPrimera(false)
     }
   }, []);
-
-  useEffect(() => {
-    document.title = "Els Viatgers del planeta Llibri";
-  }, []);
-
   return (
     <div>
       <h1 className='text-violet-900'>
         Els Viatgers del planeta Llibri
       </h1>
-      <div className="my-4 border-double border-4 border-violet-700 bg-violet-100 flex">
+      <div className="my-4 border-double border-4 border-violet-700 bg-violet-100">
         <HTMLFlipBook
           width={945}
           height={709}
@@ -60,11 +50,10 @@ function App() {
               <img src="/pagines/1.jpg" alt="pagina 1" />
             </div>
           </div>
-
           {pagines.map(p => {
             return (
               <div key={p} className="page">
-                <div className="page-content">                  
+                <div className="page-content">
                   <div className="page-image">
                     <img src={"/pagines/" + p + ".jpg"} alt={"pagina " + p} />
                   </div>
@@ -72,22 +61,16 @@ function App() {
               </div>
             )
           })}
-
           <div className="page page-cover" data-density="hard">
-            <div className="page-content">             
+            <div className="page-content">
               <div className="page-image">
-                <img src={"/pagines/" + 42 + ".jpg"} alt={"pagina " + 42} />
+                <img src={"/pagines/" + 43 + ".jpg"} alt={"pagina " + 43} />
               </div>
             </div>
           </div>
-
-
         </HTMLFlipBook>
-
       </div>
-
       <hr className="m-4" />
-
       <div className="relative h-32 w-full">
         <button className="absolute left-2 btn-red inline-flex items-center"
           disabled={primera}
@@ -97,7 +80,6 @@ function App() {
           </svg>
           <span className='mx-2'>Anterior</span>
         </button>
-
         <button className="absolute right-2 btn-red inline-flex items-center"
           disabled={ultima}
           onClick={ultima ? (() => { }) : (() => flipBook.current.pageFlip().flipNext())}>
@@ -107,9 +89,6 @@ function App() {
           </svg>
         </button>
       </div>
-
-
-
     </div>
   );
 }
