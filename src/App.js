@@ -9,7 +9,7 @@ function App() {
   let i = 0;
   let pagines = []
   // Ja farem aso mes PRO
-  for (i = 3; i < 42; i++) {
+  for (i = 2; i < 42; i++) {
     pagines.push(i);
   }
   return (
@@ -36,7 +36,7 @@ function App() {
               <img src="/pagines/1.jpg" alt="pagina 1" />
             </div>
           </div>
-          <div className='page'></div>
+          
           {pagines.map(p => {
             return (
               <div key={p} className="page">
@@ -52,7 +52,7 @@ function App() {
 
           <div className="page page-cover" data-density="hard">
             <div className="page-content">
-              <img src="/pagines/41.jpg" alt="pagina 41" />
+              <div className="page-header">Fí</div>
             </div>
           </div>
 
