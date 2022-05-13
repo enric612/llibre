@@ -38,14 +38,14 @@ function App() {
       <h1 className='text-violet-900'>
         Els Viatgers del planeta Llibri
       </h1>
-      <div className="m-4 border-double border-4 border-violet-700 bg-violet-100">
+      <div className="my-4 border-double border-4 border-violet-700 bg-violet-100">
         <HTMLFlipBook
           width={945}
           height={709}
           size="stretch"
-          minWidth={315}
+          minWidth={310}
           maxWidth={945}
-          minHeight={400}
+          minHeight={230}
           maxHeight={709}
           maxShadowOpacity={0.5}
           showCover={true}
