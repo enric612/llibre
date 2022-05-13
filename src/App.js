@@ -43,7 +43,7 @@ function App() {
                 <div className="page-content">
                   <h2 className="page-header"></h2>
                   <div className="page-image">
-                    <img src={"/pagines/" + p + ".jpg"} alt={"pagina " + p + "3"} />
+                    <img src={"/pagines/" + p + ".jpg"} alt={"pagina " + p } />
                   </div>
                 </div>
               </div>
@@ -52,7 +52,10 @@ function App() {
 
           <div className="page page-cover" data-density="hard">
             <div className="page-content">
-              <div className="page-header">Fí</div>
+            <h2 className="page-header"></h2>
+                  <div className="page-image">
+                    <img src={"/pagines/" + 42 + ".jpg"} alt={"pagina " + 42 } />
+                  </div>
             </div>
           </div>
 
