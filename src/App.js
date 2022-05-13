@@ -36,14 +36,14 @@ function App() {
               <img src="/pagines/1.jpg" alt="pagina 1" />
             </div>
           </div>
-          
+
           {pagines.map(p => {
             return (
               <div key={p} className="page">
                 <div className="page-content">
                   <h2 className="page-header"></h2>
                   <div className="page-image">
-                    <img src={"/pagines/" + p + ".jpg"} alt={"pagina " + p } />
+                    <img src={"/pagines/" + p + ".jpg"} alt={"pagina " + p} />
                   </div>
                 </div>
               </div>
@@ -52,10 +52,10 @@ function App() {
 
           <div className="page page-cover" data-density="hard">
             <div className="page-content">
-            <h2 className="page-header"></h2>
-                  <div className="page-image">
-                    <img src={"/pagines/" + 42 + ".jpg"} alt={"pagina " + 42 } />
-                  </div>
+              <h2 className="page-header"></h2>
+              <div className="page-image">
+                <img src={"/pagines/" + 42 + ".jpg"} alt={"pagina " + 42} />
+              </div>
             </div>
           </div>
 
@@ -66,13 +66,16 @@ function App() {
 
       <hr />
 
-      <button onClick={() => flipBook.current.pageFlip().flipPrev()}>
-        Anterior
-      </button>
+      <div className="relative h-32 w-32">
+        <button className="absolute left-0" onClick={() => flipBook.current.pageFlip().flipPrev()}>
+          Anterior
+        </button>
 
-      <button onClick={() => flipBook.current.pageFlip().flipNext()}>
-        Següent
-      </button>
+        <button className="absolute right-0" onClick={() => flipBook.current.pageFlip().flipNext()}>
+          Següent
+        </button>
+      </div>
+
 
 
     </div>
