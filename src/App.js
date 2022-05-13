@@ -64,8 +64,7 @@ function App() {
           {pagines.map(p => {
             return (
               <div key={p} className="page">
-                <div className="page-content">
-                  <h2 className="page-header"></h2>
+                <div className="page-content">                  
                   <div className="page-image">
                     <img src={"/pagines/" + p + ".jpg"} alt={"pagina " + p} />
                   </div>
@@ -75,8 +74,7 @@ function App() {
           })}
 
           <div className="page page-cover" data-density="hard">
-            <div className="page-content">
-              <h2 className="page-header"></h2>
+            <div className="page-content">             
               <div className="page-image">
                 <img src={"/pagines/" + 42 + ".jpg"} alt={"pagina " + 42} />
               </div>
