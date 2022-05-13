@@ -91,16 +91,22 @@ function App() {
       <hr className="m-4" />
 
       <div className="relative h-32 w-full">
-        <button className="absolute left-2 btn-red"
+        <button className="absolute left-2 btn-red inline-flex items-center"
           disabled={primera}
           onClick={primera ? (() => { }) : (() => flipBook.current.pageFlip().flipPrev())}>
-          Anterior
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+          </svg>
+          <span className='mx-2'>Anterior</span>
         </button>
 
-        <button className="absolute right-2 btn-blue"
+        <button className="absolute right-2 btn-red inline-flex items-center"
           disabled={ultima}
           onClick={ultima ? (() => { }) : (() => flipBook.current.pageFlip().flipNext())}>
-          Següent
+          <span className='mx-2'>Següent</span>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
 
